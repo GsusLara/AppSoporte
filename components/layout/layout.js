@@ -1,11 +1,11 @@
-import Navbarpage from "../navbar/navbar";
+import Navbar from "../navbar";
 
 
 export default function Layout(props) {
   const {children}=props;
     return (
         <div className="container-fluid">
-            <Navbarpage/>
+            <Navbar/>
             <div className="container">
             {children} 
             </div>
