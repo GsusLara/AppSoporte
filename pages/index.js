@@ -1,11 +1,5 @@
-import Layout from "../components/layout/layout"
+import Login from "./login";
 
 export default function Home() {
-  return (
-    <Layout>
-      <div>
-        <h1>Dashboard</h1>
-      </div>
-    </Layout>
-  )
+  return  <Login/>
 }
