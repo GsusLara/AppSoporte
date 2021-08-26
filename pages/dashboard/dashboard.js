@@ -1,11 +1,10 @@
 import Layout from "../../components/layout"
+import { Line } from "react-chartjs-2";
 
 export default function Dashboard() {
     return (
-        <Layout>
-            <div>
-                <h1>Dashboard</h1>
-            </div>
-        </Layout>
+        <div className="container">
+            <h1>Dashboard</h1>
+        </div>
     )
 }
