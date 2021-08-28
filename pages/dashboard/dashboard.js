@@ -9,11 +9,32 @@ export default function Dashboard() {
                 <div className="row">
                     <div className="col-12 detalles mt-4 mb-3">
                         <div className="row">
-                            <div className="col-5">
-                                <h4 className="subtitulos">Resumen de acciones en producción</h4>
-
+                            <div className="col-12 col-lg-5">
+                                <h4 className="subtitulos">Conteo diario de activos revisados</h4>
+                                <div className="card mt-3  py-0 cardDia">
+                                    <div className="card-body">
+                                        <table className="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Estación</th>
+                                                    <th scope="col">Bueno</th>
+                                                    <th scope="col">Reciclaje</th>
+                                                    <th scope="col">Proveedor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <TablaData hoyEstacion="1" hoyBueno="46" hoyMalo="72" hoyProveedor="0" />
+                                            <TablaData hoyEstacion="2" hoyBueno="51" hoyMalo="65" hoyProveedor="6" />
+                                            <TablaData hoyEstacion="3" hoyBueno="38" hoyMalo="87" hoyProveedor="4" />
+                                            <TablaData hoyEstacion="4" hoyBueno="41" hoyMalo="79" hoyProveedor="0" />
+                                            <TablaData hoyEstacion="5" hoyBueno="0" hoyMalo="0" hoyProveedor="0" />
+                                            <TablaData hoyEstacion="6" hoyBueno="0" hoyMalo="0" hoyProveedor="0" />
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="col-7">
+                            <div className="col-12 col-lg-7">
                                 <h4 className="subtitulos">Unidades de trabajo</h4>
                                 <div className="row">
                                     <UnidTrabajo tecnico={"Jesus Lara"} estacion={"1"} estadoActual={"Revicion - 283110"} />
@@ -26,11 +47,11 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-8 col-lg-6 px-5">
+                    <div className="col-12 col-lg-6 px-5">
                         <h4 className="subtitulos mb-2">Registro mensual</h4>
-                        <GraficoMes />
+                        <GraficoMes bueno="2250" malo="3225" garantia="406" />
                     </div>
-                    <div className="col-sm-12 col-lg-6 px-5">
+                    <div className="col-12 col-lg-6 px-5">
                         <h4 className="subtitulos">Registro anual</h4>
                         <GraficoAño />
                     </div>
@@ -40,12 +61,24 @@ export default function Dashboard() {
         </Layout>
     )
 }
+function TablaData(props){
+    const { hoyEstacion, hoyBueno, hoyMalo, hoyProveedor }=props
+    return (
+        <tr>
+            <th scope="row">{hoyEstacion}</th>
+            <td>{hoyBueno}</td>
+            <td>{hoyMalo}</td>
+            <td>{hoyProveedor}</td>
+        </tr>
+    )
+}
+
 function UnidTrabajo(props) {
     const { tecnico, estacion, estadoActual } = props;
     return (
-        <div className="card col-4 p-2">
-            <i className="fas fa-globe" />
+        <div className="card col-6 col-lg-4 p-2 cardCarros">
             <div className="card-body">
+                <i className="fas fa-globe d-flex justify-content-end" style={{ color: estadoActual != "inactivo" ? "#49DA54 " : "gray" }} />
                 <p className="mb-4">Estacion de trabajo:{" "}{estacion}</p>
                 <p className="fs-30 mb-2">Tecnico:{tecnico}</p>
                 <p>{estadoActual}</p>
@@ -77,27 +110,33 @@ function GraficoAño() {
                     fill: false,
                     borderColor: "green"
                 }
-            ]
+            ],
+            options: {
+                maintainAspectRatio : false
+              }
         }} />
     )
 }
 
-function GraficoMes() {
+function GraficoMes(props) {
+    const { bueno, malo, garantia } = props
     return (
         <Bar
             data={{
-                labels: ["Bueno", "Reciclaje", "Proveedor"],
+                labels: ["Bueno " + bueno, "Reciclaje " + malo, "Proveedor " + garantia],
                 datasets: [
                     {
                         label: "revision de equipos",
-                        data: [2260, 4536, 239],
+                        data: [bueno, malo, garantia],
                         backgroundColor: ["#5050b293", "#F3797E", "#7DA0FA",],
                         borderColor: ['#5050B2', 'red', 'blue'],
                         borderWidth: 1
                     }
-                ]
+                ],
+                options: {
+                    maintainAspectRatio : false
+                  }
             }}
-
         />
     )
 }
