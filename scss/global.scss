@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 @import "../components/layout/layout.scss";
 @import "../components/navbar/navbar.scss";
 @import "../pages/login/login.scss";
@@ -8,4 +9,5 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: 'Abel', sans-serif;
 }
