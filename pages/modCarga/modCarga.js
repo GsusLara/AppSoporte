@@ -18,7 +18,7 @@ export default function ModCarga() {
         </div>
         <div className="col-3">
           <div className="form-check">
-            <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"/>
+            <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />
             <label className="form-check-label" htmlFor="exampleRadios1">
               Revision
             </label>
@@ -75,7 +75,7 @@ export default function ModCarga() {
         <h3>Detalle de Produccion</h3>
       </div>
       <div className="row mb-2">
-      <div className="col-4 m-0">
+        <div className="col-4 m-0">
           <select className="form-select form-select-sm" aria-label=".form-select-sm example">
             <option defaultValue>Estado</option>
             <option value="1">Activas</option>
@@ -102,7 +102,7 @@ export default function ModCarga() {
             <option value="1">Todos</option>
           </select>
         </div>
-        </div>
+      </div>
       <div className="col-12">
         <div className="alert m-0 p-2 alert-success" role="alert">
           <div className="row">
@@ -150,5 +150,5 @@ export default function ModCarga() {
         </div>
       </div>
     </Layout>
-    )
+  )
 }
