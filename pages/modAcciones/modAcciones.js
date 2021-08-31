@@ -1,7 +1,9 @@
+import {useContext} from 'react';
+import { Context } from '../../store/appContext';
 import Layout from "../../components/layout/layout"
 
 export default function ModAcciones() {
-
+    const { store, actions } = useContext(Context);
     return (
         <Layout>
             <div className="row  mb-5">
@@ -20,7 +22,8 @@ export default function ModAcciones() {
                 </div>
                 <div className="col-12 text-center">
                     <h3 className="mb-4">Revision de Activos por Acción</h3>
-
+                    <h1>{store.saludo}</h1>
+                    <button onClick={()=>actions.setSaludo("bien")}>cambiar</button>
                 </div>
             </div>
         </Layout>
