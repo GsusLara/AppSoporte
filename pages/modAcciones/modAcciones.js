@@ -11,7 +11,7 @@ export default function ModAcciones() {
         <Layout>
             <div className="container mb-5">
                 <div className="row">
-                    <h1 className="mt-3 mb-5 mx-auto">Gestion de Acciones</h1>
+                    <h1 className="mt-3 mb-2 mx-auto">Gestion de Acciones</h1>
                     <div className="col-12 text-center">
                         <h3 className="mb-4">Cargar Acciones al Sistema</h3>
                         <div className="row justify-content-center">

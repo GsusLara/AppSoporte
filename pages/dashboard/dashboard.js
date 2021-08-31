@@ -23,12 +23,12 @@ export default function Dashboard() {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <TablaData hoyEstacion="1" hoyBueno="46" hoyMalo="72" hoyProveedor="0" />
-                                            <TablaData hoyEstacion="2" hoyBueno="51" hoyMalo="65" hoyProveedor="6" />
-                                            <TablaData hoyEstacion="3" hoyBueno="38" hoyMalo="87" hoyProveedor="4" />
-                                            <TablaData hoyEstacion="4" hoyBueno="41" hoyMalo="79" hoyProveedor="0" />
-                                            <TablaData hoyEstacion="5" hoyBueno="0" hoyMalo="0" hoyProveedor="0" />
-                                            <TablaData hoyEstacion="6" hoyBueno="0" hoyMalo="0" hoyProveedor="0" />
+                                                <TablaData hoyEstacion="1" hoyBueno="46" hoyMalo="72" hoyProveedor="0" />
+                                                <TablaData hoyEstacion="2" hoyBueno="51" hoyMalo="65" hoyProveedor="6" />
+                                                <TablaData hoyEstacion="3" hoyBueno="38" hoyMalo="87" hoyProveedor="4" />
+                                                <TablaData hoyEstacion="4" hoyBueno="41" hoyMalo="79" hoyProveedor="0" />
+                                                <TablaData hoyEstacion="5" hoyBueno="0" hoyMalo="0" hoyProveedor="0" />
+                                                <TablaData hoyEstacion="6" hoyBueno="0" hoyMalo="0" hoyProveedor="0" />
                                             </tbody>
                                         </table>
                                     </div>
@@ -47,12 +47,21 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-6 px-5">
-                        <h4 className="subtitulos mb-2">Registro mensual</h4>
-                        <GraficoMes bueno="2250" malo="3225" garantia="406" />
+                    <div className="col-12 col-lg-5">
+                        <h4 className="subtitulos">Listado de acciones del día</h4>
+                        <div className="text-center mt-5 px-5">
+                            <ul className="list-group list-group-flush">
+                                <DataAcciones numero="123110" trabajo="Reequipamiento" />
+                                <DataAcciones numero="123119" trabajo="Reequipamiento" />
+                                <DataAcciones numero="123244" trabajo="Reequipamiento" />
+                                <DataAcciones numero="123245" trabajo="Reequipamiento" />
+                                <DataAcciones numero="123250" trabajo="Reequipamiento" />
+                                <DataAcciones numero="123252" trabajo="Reequipamiento" />
+                            </ul>
+                        </div>
                     </div>
-                    <div className="col-12 col-lg-6 px-5">
-                        <h4 className="subtitulos">Registro anual</h4>
+                    <div className="col-12 col-lg-7 px-5">
+                        <h4 className="subtitulos">Registro Periodico</h4>
                         <GraficoAño />
                     </div>
                 </div>
@@ -61,8 +70,14 @@ export default function Dashboard() {
         </Layout>
     )
 }
-function TablaData(props){
-    const { hoyEstacion, hoyBueno, hoyMalo, hoyProveedor }=props
+function DataAcciones(props) {
+    const { numero, trabajo } = props
+    return (
+        <li className="list-group-item">{numero} - {trabajo}</li>
+    )
+}
+function TablaData(props) {
+    const { hoyEstacion, hoyBueno, hoyMalo, hoyProveedor } = props
     return (
         <tr>
             <th scope="row">{hoyEstacion}</th>
@@ -72,7 +87,6 @@ function TablaData(props){
         </tr>
     )
 }
-
 function UnidTrabajo(props) {
     const { tecnico, estacion, estadoActual } = props;
     return (
@@ -112,31 +126,8 @@ function GraficoAño() {
                 }
             ],
             options: {
-                maintainAspectRatio : false
-              }
+                maintainAspectRatio: false
+            }
         }} />
-    )
-}
-
-function GraficoMes(props) {
-    const { bueno, malo, garantia } = props
-    return (
-        <Bar
-            data={{
-                labels: ["Bueno " + bueno, "Reciclaje " + malo, "Proveedor " + garantia],
-                datasets: [
-                    {
-                        label: "revision de equipos",
-                        data: [bueno, malo, garantia],
-                        backgroundColor: ["#5050b293", "#F3797E", "#7DA0FA",],
-                        borderColor: ['#5050B2', 'red', 'blue'],
-                        borderWidth: 1
-                    }
-                ],
-                options: {
-                    maintainAspectRatio : false
-                  }
-            }}
-        />
     )
 }
