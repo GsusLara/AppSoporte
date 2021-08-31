@@ -20,6 +20,11 @@ export default function Navbar() {
                                 <a className="nav-link" >Gestion de Acciones</a>
                             </Link >
                         </li>
+                        <li className="nav-item ">
+                            <Link href="/modCarga">
+                                <a className="nav-link" >Cargas de Trabajo</a>
+                            </Link>
+                        </li>
                         <li className="nav-item">
                             <a className="nav-link " href="#" >Generar Informes</a>
                         </li>
