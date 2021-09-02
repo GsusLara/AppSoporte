@@ -1,10 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Context } from '../../store/appContext';
 import Layout from "../../components/layout/layout"
 
 export default function ModAcciones() {
     const { store, actions } = useContext(Context);
     let todasAcciones = Object.keys(store.accionesCEDI);
+    const [boleta, setboleta] = useState(-1);
+    const handlerVerActivos = (e) => {
+        let seleccion = e.target.value;
+        setboleta(seleccion);
+    }
     return (
         <Layout>
             <div className="row  mb-5">
@@ -25,11 +30,11 @@ export default function ModAcciones() {
                     <h3 className="mb-4">Revision de Activos por Acción</h3>
                     <div className="row justify-content-center">
                         <div className="col-4 ">
-                            <select className="form-select " aria-label=".form-select-sm example">
-                                <option defaultValue>Seleccione la accion a revisar</option>
+                            <select className="form-select " aria-label="acciones" onChange={handlerVerActivos}>
+                                <option value={-1}>Seleccione la accion a revisar</option>
                                 {todasAcciones.map((item, index) => {
                                     return (
-                                        <ItemAccion identificador={item} key={index} />
+                                        <option value={index} key={index}>{item}</option>
                                     )
                                 })}
                             </select>
@@ -51,32 +56,26 @@ export default function ModAcciones() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {store.accionesCEDI.AC208818.map((item, index) => {
-                                    return (
-                                        <TablaAccion key={index} placa={item.__EMPTY_7} serie={item.__EMPTY_8} descripcion={item.__EMPTY_11} />
-                                    )
-                                })}
+                                {  
+                                    boleta == -1 ? <tr>
+                                        <td></td>
+                                        <td ></td>
+                                        <td ></td>
+                                    </tr> :
+                                        store.accionesCEDI.AC208818.map((item, index) => {
+                                            return (
+                                                <tr key={"linea" + index}>
+                                                    <td key={"placa" + index}>{item.__EMPTY_7}</td>
+                                                    <td key={"serie" + index}>{item.__EMPTY_8}</td>
+                                                    <td key={"descripcion" + index}>{item.__EMPTY_11}</td>
+                                                </tr>
+                                            )
+                                        })}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </Layout>
-    )
-}
-function ItemAccion(props) {
-    const { identificador } = props
-    return (
-        <option>{identificador}</option>
-    )
-}
-function TablaAccion(props) {
-    const { placa, serie, descripcion } = props
-    return (
-        <tr>
-            <td>{placa}</td>
-            <td>{serie}</td>
-            <td>{descripcion}</td>
-        </tr>
     )
 }
