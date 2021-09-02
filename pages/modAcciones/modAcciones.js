@@ -3,12 +3,16 @@ import { Context } from '../../store/appContext';
 import Layout from "../../components/layout/layout"
 
 export default function ModAcciones() {
+    
     const { store, actions } = useContext(Context);
-    let todasAcciones = Object.keys(store.accionesCEDI);
+    let todasAccionesVista = Object.keys(store.accionesCEDI);
+    let todasAcciones = Object.values(store.accionesCEDI);
+    const [numAccion, setnumAccion] = useState(store.accionesCEDI.AC208818);
     const [boleta, setboleta] = useState(-1);
     const handlerVerActivos = (e) => {
         let seleccion = e.target.value;
         setboleta(seleccion);
+        setnumAccion(todasAcciones[seleccion]); 
     }
     return (
         <Layout>
@@ -32,7 +36,7 @@ export default function ModAcciones() {
                         <div className="col-4 ">
                             <select className="form-select " aria-label="acciones" onChange={handlerVerActivos}>
                                 <option value={-1}>Seleccione la accion a revisar</option>
-                                {todasAcciones.map((item, index) => {
+                                {todasAccionesVista.map((item, index) => {
                                     return (
                                         <option value={index} key={index}>{item}</option>
                                     )
@@ -62,7 +66,7 @@ export default function ModAcciones() {
                                         <td ></td>
                                         <td ></td>
                                     </tr> :
-                                        store.accionesCEDI.AC208818.map((item, index) => {
+                                        numAccion.map((item, index) => {
                                             return (
                                                 <tr key={"linea" + index}>
                                                     <td key={"placa" + index}>{item.__EMPTY_7}</td>
