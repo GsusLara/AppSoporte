@@ -1,6 +1,10 @@
 import { useContext, useState } from 'react';
 import { Context } from '../../store/appContext';
 import Layout from "../../components/layout/layout"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {fas} from "@fortawesome/free-solid-svg-icons"
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(fas)
 
 export default function ModAcciones() {
     
@@ -46,7 +50,7 @@ export default function ModAcciones() {
                         <div className="col-4">
                             <div className="input-group">
                                 <input type="text" className="form-control" placeholder="Buscar Activo" aria-label="Buscar Activo" aria-describedby="button-addon2" />
-                                <button className="btn btn btn-primary" type="button" id="button-addon2"><i className="fas fa-search"></i></button>
+                                <button className="btn btn btn-primary" type="button" id="button-addon2"><FontAwesomeIcon icon="search"/></button>
                             </div>
                         </div>
                     </div>

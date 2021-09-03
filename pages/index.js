@@ -1,6 +1,7 @@
 import Login from "./login";
 import Script from 'next/script'
 
+
 export default function Home() {
   return (
     <Login>

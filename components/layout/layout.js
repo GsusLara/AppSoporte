@@ -1,4 +1,5 @@
 import Navbar from "../navbar";
+import Footer from "../footer";
 
 
 export default function Layout(props) {
@@ -9,6 +10,7 @@ export default function Layout(props) {
             <div className="container">
             {children} 
             </div>
+            <Footer/>
         </div>
     )
 }

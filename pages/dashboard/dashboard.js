@@ -1,5 +1,9 @@
 import Layout from "../../components/layout"
-import { Line, Bar } from "react-chartjs-2"
+import { Line} from "react-chartjs-2"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {fas} from "@fortawesome/free-solid-svg-icons"
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(fas)
 
 export default function Dashboard() {
     return (
@@ -92,7 +96,9 @@ function UnidTrabajo(props) {
     return (
         <div className="card col-6 col-lg-4 p-2 cardCarros">
             <div className="card-body">
-                <i className="fas fa-globe d-flex justify-content-end" style={{ color: estadoActual != "inactivo" ? "#49DA54 " : "gray" }} />
+                <div className="d-flex justify-content-end">
+                    <FontAwesomeIcon icon="globe" color={estadoActual != "inactivo" ? "#49DA54 " : "gray" } />
+                </div>
                 <p className="mb-4">Estacion de trabajo:{" "}{estacion}</p>
                 <p className="fs-30 mb-2">Tecnico:{tecnico}</p>
                 <p>{estadoActual}</p>
