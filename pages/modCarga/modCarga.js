@@ -19,7 +19,7 @@ export default function ModCarga() {
           <button type="button" className="btn btn-success mt-3">Asignar</button>
         </div>
         <div className="col-3">
-          <div class="row justify-content-center">
+          <div className="row justify-content-center">
             <div className="col-7">
               <div className="form-check">
                 <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />

@@ -26,7 +26,9 @@ export default function Navbar() {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link " href="#" >Generar Informes</a>
+                            <Link href="/modInformes"> 
+                            <a className="nav-link ">Generar Informes</a>
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link " href="#" >Usuarios</a>

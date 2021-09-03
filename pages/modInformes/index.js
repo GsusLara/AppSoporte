@@ -1,1 +1,1 @@
-export {defaul} from "./modInformes"
+export {default} from "./modInformes"
