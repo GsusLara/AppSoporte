@@ -1,10 +1,13 @@
 import Link from "next/link";
+import Image from 'next/image'
+import Fodlogo from "../../public/Fod.png"
 
 export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <img src="/Fod.png" alt="Fundacion Omar Dengo" className="logo p-1 mr-1 navbar-brand" />
+                
+            <Image src={Fodlogo} alt="Fundacion Omar Dengo" className="p-1 mr-1 navbar-brand" width={50} height={50}/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
