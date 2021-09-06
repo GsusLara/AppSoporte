@@ -7,7 +7,7 @@ export default function Layout(props) {
     return (
         <div className="container-fluid">
             <Navbar/>
-            <div className="container">
+            <div className="container principal">
             {children} 
             </div>
             <Footer/>
