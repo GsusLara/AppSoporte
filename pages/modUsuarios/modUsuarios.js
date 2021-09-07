@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext} from 'react';
 import { Context } from '../../store/appContext';
 import Layout from "../../components/layout"
 
@@ -26,17 +26,17 @@ export default function modUsuarios() {
                 </div>
                 <div className="col-4 text-left pt-2 p-5">
                     <h5 className="mb-3">Usuarios en unidades</h5>
-                    <h6>carrito 1</h6><CarritosUsuarios/>
-                    <h6>carrito 2</h6><CarritosUsuarios/>
-                    <h6>carrito 3</h6><CarritosUsuarios/>
-                    <h6>carrito 4</h6><CarritosUsuarios/>
-                    <h6>carrito 5</h6><CarritosUsuarios/>
-                    <h6>carrito 6</h6><CarritosUsuarios/>
+                    <h6>carrito 1</h6><CarritosUsuarios lista={store.usuariosCEDI}/>
+                    <h6>carrito 2</h6><CarritosUsuarios lista={store.usuariosCEDI}/>
+                    <h6>carrito 3</h6><CarritosUsuarios lista={store.usuariosCEDI}/>
+                    <h6>carrito 4</h6><CarritosUsuarios lista={store.usuariosCEDI}/>
+                    <h6>carrito 5</h6><CarritosUsuarios lista={store.usuariosCEDI}/>
+                    <h6>carrito 6</h6><CarritosUsuarios lista={store.usuariosCEDI}/>
                 </div>
                 <div className="col-4 text-left pt-2 p-5">
                     <h5 className="mb-5">Usuarios  de supervición</h5>
-                    <div className="m-3"><CarritosUsuarios/></div>
-                    <div className="m-3"><CarritosUsuarios/></div>
+                    <div className="m-3"><CarritosUsuarios lista={store.usuariosCEDI}/></div>
+                    <div className="m-3"><CarritosUsuarios lista={store.usuariosCEDI}/></div>
                     <div className="mt-5 m-3">
                     <button type="button" className="btn btn-success">Guardar Cambios</button>
                     </div>
@@ -45,18 +45,13 @@ export default function modUsuarios() {
         </Layout>
     )
 }
-const CarritosUsuarios = () => {
-    const { store} = useContext(Context);
+const CarritosUsuarios = (props) => {
+    const lista=(props);
     return (
         <>
             <select className="form-select form-select" aria-label="seleccione usuario de carrito">
                 <option defaultValue>Seleccione un usuario</option>
-                {store.usuariosCEDI.map((item, index) => {
-                    return (
-                        <option key={index}>{item.nombre}</option>
-                    )
-                })
-                }
+                        <option>hola</option>
             </select>
         </>
     )
