@@ -1,6 +1,17 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			usuariosCEDI:[
+				{correo:"adrian.obando@fod.ac.cr",nombre:"Adrian Obando"},
+				{correo:"alvaro.jaen@fod.ac.cr",nombre:"Alvaro Jaen"},
+				{correo:"armando.cespedes@fod.ac.cr",nombre:"Armando Cespedes"},
+				{correo:"cessar.solis@fod.ac.cr",nombre:"Cessar Solis"},
+				{correo:"danny.mondragon@fod.ac.cr",nombre:"Danny Mondragon"},
+				{correo:"diego.gamboa@fod.ac.cr",nombre:"Diego Gamboa"},
+				{correo:"jesus.lara@fod.ac.cr",nombre:"Jesus Lara"},
+				{correo:"kenneth.navarrete@fod.ac.cr",nombre:"Keneth Navarrete"},
+				{correo:"marvin.castro@fod.ac.cr",nombre:"Marvin Castro"}
+			],
 			accionesCEDI: {
 				AC208818: [
 					{ __EMPTY: 'Registro de Acciones Masivas # AC00128126' },

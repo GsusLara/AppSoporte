@@ -1,0 +1,20 @@
+.listado {
+  height: 62vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 10px; /* width of the entire scrollbar */
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff; /* color of the tracking area */
+    border: 1px solid rgb(168, 168, 168);
+    border-radius: 20px;
+    margin: 10px;
+
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: gray; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 1px solid gray; /* creates padding around scroll thumb */
+  }
+}

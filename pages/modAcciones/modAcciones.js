@@ -20,8 +20,7 @@ export default function ModAcciones() {
     }
     return (
         <Layout>
-            <div className="row  mb-5">
-                <h1 className="mt-3 mb-2 mx-auto">Gestion de Acciones</h1>
+            <div className="row mb-5">
                 <div className="col-12 text-center">
                     <h3 className="mb-4">Cargar Acciones al Sistema</h3>
                     <div className="row justify-content-center">

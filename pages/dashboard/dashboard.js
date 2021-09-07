@@ -8,9 +8,10 @@ library.add(fas)
 export default function Dashboard() {
     return (
         <Layout>
-            <div className="container">
-                <h1>Panel Informativo</h1>
                 <div className="row">
+                    <div className="col-12 text-center">
+                        <h3>Panel Informativo</h3>
+                    </div>
                     <div className="col-12 detalles mt-4 mb-3">
                         <div className="row">
                             <div className="col-12 col-lg-5">
@@ -69,8 +70,6 @@ export default function Dashboard() {
                         <GraficoAño />
                     </div>
                 </div>
-
-            </div>
         </Layout>
     )
 }
