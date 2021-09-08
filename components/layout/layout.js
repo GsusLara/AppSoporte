@@ -1,16 +1,24 @@
+import { useEffect } from "react"
+import router from 'next/router'
 import Navbar from "../navbar";
 import Footer from "../footer";
 
 
 export default function Layout(props) {
-  const {children}=props;
+    useEffect(() => {
+        if (localStorage.getItem("usuario") == "") {
+            router.push("/");
+        }
+    }
+        , [])
+    const { children } = props;
     return (
         <div className="container-fluid">
-            <Navbar/>
+            <Navbar />
             <div className="container principal">
-            {children} 
+                {children}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

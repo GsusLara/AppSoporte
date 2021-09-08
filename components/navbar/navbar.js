@@ -1,8 +1,13 @@
 import Link from "next/link";
+import router from 'next/router'
 import Image from 'next/image'
 import Fodlogo from "../../public/Fod.png"
 
 export default function Navbar() {
+    const limpiar=()=>{
+        localStorage.setItem("usuario","");
+        router.push("/");
+    }
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div className="container-fluid">
@@ -40,9 +45,7 @@ export default function Navbar() {
                         </li>
                     </ul>
                     <div className="collapse navbar-collapse" />
-                    <Link href="/">
-                        <a className="nav-link salir" >Cerrar Sesión</a>
-                    </Link>
+                        <a className="nav-link salir" onClick={()=>limpiar()}>Cerrar Sesión</a>
                 </div>
             </div>
         </nav>

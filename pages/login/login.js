@@ -1,7 +1,21 @@
-import Link from "next/link";
+import { useState } from "react";
+import router from 'next/router'
 import Particles from 'react-particles-js';
 
 export default function Login() {
+  const [usuario, setusuario] = useState("")
+
+  const validar = (nombre) => {
+    nombre = nombre.toUpperCase();
+    if (nombre == "TECNICO" || nombre == "SUPERVISOR" || nombre == "ADMINISTRADOR") {
+      localStorage.setItem("usuario", nombre)
+      router.push("/dashboard")
+    } else {
+      alert("nombre de usuario invalido");
+      setusuario("")
+    }
+  }
+
   return (
     <div className="container-fluid caja">
       <Decoracion />
@@ -10,17 +24,15 @@ export default function Login() {
           <h2 className="text-center mt-3 mb-3">Soporte CEDI</h2>
           <form>
             <div className="mb-3">
-              <label htmlFor="exampleInputEmail1" className="form-label ">Correo Electronico</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-              <div id="emailHelp" className="form-text">Utiliza tu cuenta institucional.</div>
+              <label htmlFor="exampleInputEmail1" className="form-label ">Usuario o Correo Electrónico</label>
+              <input type="userName" className="form-control" onChange={e => setusuario(e.target.value)} onKeyPress={e => { if (e.key == "Enter") { validar(usuario) } }} />
+              <div id="emailHelp" className="form-text">Ingrese (tecnico,supervisor o administrador)</div>
             </div>
-            <div className="mb-3 ">
-              <label htmlFor="exampleInputPassword1" className="form-label ">Contraseña</label>
-              <input type="password" className="form-control" id="exampleInputPassword1" />
+            <div className="mb-3">
+              <label htmlFor="disabledTextInput" className="form-label">Password</label>
+              <input type="text" id="disabledTextInput" className="form-control" placeholder="no requiere password" disabled />
             </div>
-            <Link href="/dashboard">
-              <a type="submit" className="btn btn-success mt-2 mb-3">Ingresar</a>
-            </Link>
+            <a type="submit" className="btn btn-success mt-2 mb-3" onClick={() => validar(usuario)}>Ingresar</a>
           </form>
         </div>
       </div>

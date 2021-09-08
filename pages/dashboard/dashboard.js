@@ -6,6 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(fas)
 
 export default function Dashboard() {
+    
     return (
         <Layout>
                 <div className="row">
