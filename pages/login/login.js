@@ -9,9 +9,11 @@ export default function Login() {
     nombre = nombre.toUpperCase();
     if (nombre == "TECNICO" || nombre == "SUPERVISOR" || nombre == "ADMINISTRADOR") {
       localStorage.setItem("usuario", nombre)
+      nombre=="TECNICO"?
+      router.push("/panelTecnico"):
       router.push("/dashboard")
     } else {
-      alert("nombre de usuario invalido");
+      alert("Ingrese como Tecnico, Administrador o Supervisor");
       setusuario("")
     }
   }

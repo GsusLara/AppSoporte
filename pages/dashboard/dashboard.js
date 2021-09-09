@@ -11,9 +11,9 @@ export default function Dashboard() {
         <Layout>
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h3>Panel Informativo</h3>
+                        <h1>Panel Informativo</h1>
                     </div>
-                    <div className="col-12 detalles mt-4 mb-3">
+                    <div className="col-12 detalles mt-4 mb-1">
                         <div className="row">
                             <div className="col-12 col-lg-5">
                                 <h4 className="subtitulos">Conteo diario de activos revisados</h4>
